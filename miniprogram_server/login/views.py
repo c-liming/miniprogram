@@ -2,13 +2,24 @@ from email.policy import default
 from django.shortcuts import render, HttpResponse
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
+
+
 # Create your views here.
 
 
 def login_views(request):
 
     if request.method == "GET":
-        return render(request, "login/html/login.html") 
+        # 测试
+        import time
+        t = time.time()
+        print(t)
+        test = {
+            'time': t,
+            'a': 'aaa',
+            "ccc": 'aaaaaaaaaa'
+        }
+        return render(request, "login/html/login.html", test) 
 
     elif request.method == "POST":
         try:
