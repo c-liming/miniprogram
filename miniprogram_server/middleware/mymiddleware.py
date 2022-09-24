@@ -16,11 +16,11 @@ class MyMW(MiddlewareMixin):
         if addr_times:
             addr_times_ann = addr_times.values('path_info').annotate(Count('path_info'))
             print('addr_times_ann',addr_times_ann)
-            # /login 访问次数限制，如果超过次数，限制访问，未超过次数则添加一次访问次数
+            """# /login 访问次数限制，如果超过次数，限制访问，未超过次数则添加一次访问次数
             for i in addr_times_ann:
                 if i.get('path_info') == '/login' and i['path_info__count'] >= 5:
                     return HttpResponse('您超过了访问次数上限')
             else:
-                print('request_ok')
+                print('request_ok')"""
         WS.objects.create(remote_addr=remote_addr, path_info=path_info)
     
