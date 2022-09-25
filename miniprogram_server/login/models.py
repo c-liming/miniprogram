@@ -11,6 +11,7 @@ class Account(models.Model):
     uid = models.CharField('账号', max_length=11, unique=True)
     upw = models.CharField('密码', max_length=64)
     nickname = models.CharField('昵称', max_length=8, default="")
+    head_portrait = models.FileField('头像', upload_to='acc_head_portrait', null=True, default='')
 
     def __str__(self):
         return '%s' % self.nickname

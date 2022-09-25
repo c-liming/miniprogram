@@ -1,4 +1,6 @@
 from email.policy import default
+from hashlib import new
+import re
 from urllib import response
 from django.shortcuts import render, HttpResponse
 from .models import *
@@ -55,4 +57,31 @@ def load_wmsinfo(request):
         w.writerow([i.remote_addr, i.path_info, i.ctime])
 
     return res
+
+
+
+def reg_acc(request):
+    if request.method == "GET":
+        return render(request, 'login/html/reg_acc.html')
+
+    if request.method == 'POST':
+        uid = request.POST.get('uid')
+        upw = request.POST.get('upw')
+        upw_again = request.POST.get('upw_again')
+        nickname = request.POST.get('nickname')
+        head_portrait = request.FILES.get('head_portrait')
+        try:
+            Account.objects.get(uid=uid)
+            return HttpResponse('账号已被注册')
+        except:
+            if upw == upw_again and len(upw) >= 5:
+                new_acc = Account(uid=uid, upw=upw)
+                if len(nickname) > 8:
+                    return HttpResponse('昵称太长了')
+                new_acc.nickname = nickname
+                new_acc.head_portrait = head_portrait
+                new_acc.save()
+                return HttpResponse('注册成功' )
+            else:
+                return HttpResponse('注册失败，密码太短')
 

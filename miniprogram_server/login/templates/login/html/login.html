@@ -18,11 +18,11 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <p>登录</p>
-        <form action="/login", method="post">
+        <form action="/login", method="post", enctype="multipart/form-data">
             <input type="text" name="uid" value="" placeholder="账号">
             <input type="password" name="upw" value="" placeholder="密码">
+            <input type="file" name="myfile">
             <input type="submit" value="登录">
-            
         </form>
         <img src="/static/login/image/_MG_1300.JPG" width="200px"></img>
     
