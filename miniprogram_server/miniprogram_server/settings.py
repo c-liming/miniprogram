@@ -136,13 +136,9 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_DIR = [
-    BASE_DIR / 'static',
-]
+STATIC_DIR = [BASE_DIR / 'static',]
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'miniprogram_server_static', 'static')
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -152,3 +148,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# 邮箱配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sz-mtr.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'chenliming@sz-mtr.com'
+EMAIL_HOST_PASSWORD = 'G7Gg255vWrCNYqGy'
+EMAIL_USE_TLS = False
+# 异常发送邮件配置DEBUG = False 时生效
+ADMINS = [('Django', 'm731670626@163.com')]
+SERVER_EMAIL = 'chenliming@sz-mtr.com'
