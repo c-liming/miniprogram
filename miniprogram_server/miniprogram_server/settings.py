@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-8kknu78f8$6*2rdsbf5h642+4*zciq7r+l1($f_u*_!e&gai#b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.16.3.11', '127.0.0.1', '192.168.31.224']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -140,13 +141,10 @@ STATIC_DIR = [
 ]
 STATIC_URL = '/static/'
 
-<<<<<<< HEAD
-STATIC_ROOT = BASE_DIR / 'miniprogram_server_static' / 'static'
-=======
-MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'miniprogram_server_static', 'static')
 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
->>>>>>> refs/remotes/origin/main
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
