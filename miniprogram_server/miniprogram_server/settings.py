@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8kknu78f8$6*2rdsbf5h642+4*zciq7r+l1($f_u*_!e&gai#b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.16.3.11', '127.0.0.1']
+ALLOWED_HOSTS = ['10.16.3.11', '127.0.0.1', '192.168.31.224']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.mymiddleware.MyMW'
 ]
 
 ROOT_URLCONF = 'miniprogram_server.urls'
@@ -139,7 +140,13 @@ STATIC_DIR = [
 ]
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 STATIC_ROOT = BASE_DIR / 'miniprogram_server_static' / 'static'
+=======
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+>>>>>>> refs/remotes/origin/main
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
