@@ -17,7 +17,7 @@ def login_views(request):
         # 分页练习
         page_num = request.GET.get('page_num', 1)
         wms = WebmasterStatistical.objects.all().values()
-        paginator = Paginator(wms, 10)
+        paginator = Paginator(wms, 20)
         now_page = paginator.page(int(page_num))
         if request.GET.get('load_now_page', 0):
             # 下载分页数据
